@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "org.apache.spark" %% "spark-streaming" % sparkVersion,
   "org.apache.kafka" % "kafka-clients" % "3.4.1",
-  "org.apache.kafka" % "kafka-clients" % "3.4.1",
+  "org.apache.spark" %% "spark-sql-kafka-0-10" % "3.5.3",
   "org.apache.spark" %% "spark-token-provider-kafka-0-10" % "3.5.3",
   "org.apache.spark" %% "spark-tags" % "3.5.3",
   "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4",

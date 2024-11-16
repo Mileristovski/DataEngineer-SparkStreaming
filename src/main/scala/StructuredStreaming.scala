@@ -14,22 +14,16 @@ object StructuredStreaming {
 
     import spark.implicits._
 
-    // Create DataFrame representing the stream of input lines from connection to localhost:9999
-    val lines = spark.readStream
-      .format("socket")
-      .option("host", "localhost")
-      .option("port", 9999)
+    val df = spark
+      .readStream
+      .format("kafka")
+      .option("kafka.bootstrap.servers", "localhost:9092")
+      .option("subscribe", "Test")
       .load()
 
-    // Split the lines into words
-    val words = lines.as[String].flatMap(_.split(" "))
-
-    // Generate running word count
-    val wordCounts = words.groupBy("value").count()
-
     // Start running the query that prints the running counts to the console
-    val query = wordCounts.writeStream
-      .outputMode("complete")
+    val query = df.writeStream
+      .outputMode("append")
       .format("console")
       .start()
 
