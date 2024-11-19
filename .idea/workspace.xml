@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="Init 3">
+    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="Update build.sbt and StructuredStreaming.scala">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Streaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Mileristovski/spark-streaming.git&quot;,
+    &quot;accountId&quot;: &quot;07111fda-0904-4f2d-b719-d902d232d3df&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -40,6 +59,7 @@
     &quot;Application.SparkStreaming.executor&quot;: &quot;Run&quot;,
     &quot;Application.StructuredStreaming.executor&quot;: &quot;Run&quot;,
     &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Docker/zk-single-kafka-single.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -56,7 +76,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.StructuredStreaming">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.Main" />
       <module name="TrackABoat" />
@@ -122,17 +142,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Docker/zk-single-kafka-single.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="sourceFilePath" value="Docker/zk-single-kafka-single.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SparkStreaming" />
       <item itemvalue="Application.StructuredStreaming" />
       <item itemvalue="Application.Test" />
+      <item itemvalue="Docker.Docker/zk-single-kafka-single.yml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StructuredStreaming" />
+        <item itemvalue="Docker.Docker/zk-single-kafka-single.yml: Compose Deployment" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SparkStreaming" />
-        <item itemvalue="Application.StructuredStreaming" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -164,7 +201,8 @@
       <workItem from="1731702988586" duration="2318000" />
       <workItem from="1731749422448" duration="26000" />
       <workItem from="1731749601443" duration="117000" />
-      <workItem from="1731749856212" duration="952000" />
+      <workItem from="1731749856212" duration="2128000" />
+      <workItem from="1732009397443" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="Init 2">
       <option name="closed" value="true" />
@@ -182,15 +220,53 @@
       <option name="project" value="LOCAL" />
       <updated>1731749888085</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Init 4">
+      <option name="closed" value="true" />
+      <created>1731751677930</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731751677930</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update build.sbt">
+      <option name="closed" value="true" />
+      <created>1731754014974</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731754014974</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update build.sbt and StructuredStreaming.scala">
+      <option name="closed" value="true" />
+      <created>1731764195237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731764195237</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init 2" />
     <MESSAGE value="Init 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init 3" />
+    <MESSAGE value="Init 4" />
+    <MESSAGE value="Update build.sbt" />
+    <MESSAGE value="Update build.sbt and StructuredStreaming.scala" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update build.sbt and StructuredStreaming.scala" />
   </component>
 </project>

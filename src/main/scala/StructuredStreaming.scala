@@ -1,6 +1,8 @@
 package esgi.datastreming.org
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 
 object StructuredStreaming {
   def main(args: Array[String]): Unit = {
@@ -9,22 +11,35 @@ object StructuredStreaming {
     val spark = SparkSession
       .builder
       .appName("StructuredNetworkWordCount")
-      .master("local[*]") // Add this line to specify the master
+      .master("local[*]") // Specify the master
       .getOrCreate()
 
     import spark.implicits._
+
+    // Define the schema of the JSON data
+    val jsonSchema = new StructType()
+      .add("MessageType", StringType)
+      .add("MMSI", LongType)
+      .add("Latitude", DoubleType)
+      .add("Longitude", DoubleType)
+      .add("Speed", DoubleType)
+      .add("Timestamp", StringType)
 
     val df = spark
       .readStream
       .format("kafka")
       .option("kafka.bootstrap.servers", "localhost:9092")
-      .option("subscribe", "Test")
+      .option("subscribe", "ais_data")
       .load()
 
-    // Start running the query that prints the running counts to the console
-    val query = df.writeStream
+    // Select and decode the 'value' column
+    val jsonDf = df.selectExpr("CAST(value AS STRING) AS json_string")
+
+    // Start running the query that prints the parsed JSON data to the console
+    val query = jsonDf.writeStream
       .outputMode("append")
       .format("console")
+      .option("truncate", "false") // Prevent truncation of long rows
       .start()
 
     query.awaitTermination()
