@@ -14,17 +14,6 @@ object StructuredStreaming {
       .master("local[*]") // Specify the master
       .getOrCreate()
 
-    import spark.implicits._
-
-    // Define the schema of the JSON data
-    val jsonSchema = new StructType()
-      .add("MessageType", StringType)
-      .add("MMSI", LongType)
-      .add("Latitude", DoubleType)
-      .add("Longitude", DoubleType)
-      .add("Speed", DoubleType)
-      .add("Timestamp", StringType)
-
     val df = spark
       .readStream
       .format("kafka")
@@ -33,7 +22,7 @@ object StructuredStreaming {
       .load()
 
     // Select and decode the 'value' column
-    val jsonDf = df.selectExpr("CAST(value AS STRING) AS json_string")
+    val jsonDf = df.selectExpr("CAST(value AS STRING) AS Message", "CAST(key AS STRING) as Key")
 
     // Start running the query that prints the parsed JSON data to the console
     val query = jsonDf.writeStream

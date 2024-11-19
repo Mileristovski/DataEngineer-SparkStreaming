@@ -27,8 +27,18 @@ async def connect_to_ais_stream():
         await websocket.send(subscription_message)
         # Receive and process messages
         async for message in websocket:
-            # Send message to Kafka
-            producer.send(KAFKA_TOPIC, message)
+            decoded_message = json.loads(message.decode("utf-8"))
+            
+            # Extract key and merge "Message" content with the rest
+            key = decoded_message["MessageType"]
+            message_data = decoded_message.pop("Message")
+            message_data.update(decoded_message)
+            message_data.pop("MessageType")
+            # Serialize the modified data back to JSON
+            message_json = json.dumps(message_data)
+            
+            # Send the processed message to Kafka
+            producer.send(KAFKA_TOPIC, value=message_json.encode("utf-8"), key=key.encode("utf-8"))
 
 # Run the WebSocket client
 asyncio.get_event_loop().run_until_complete(connect_to_ais_stream())
