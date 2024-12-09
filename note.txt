@@ -1,0 +1,8 @@
+Faire des slides objectif fonctionnel
+quel données on traite
+diagrame d'archi
+Comment on traite 
+éviter les select console
+application scalable
+faire de la manipulation de données
+app tier fait juste l'affichage
