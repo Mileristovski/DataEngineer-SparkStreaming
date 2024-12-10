@@ -1,8 +1,6 @@
 package esgi.datastreming.org
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 
 object StructuredStreaming {
   def main(args: Array[String]): Unit = {
@@ -11,7 +9,7 @@ object StructuredStreaming {
     val spark = SparkSession
       .builder
       .appName("StructuredNetworkWordCount")
-      .master("local[*]") // Specify the master
+      .master("local[*]")
       .getOrCreate()
 
     val df = spark
@@ -28,7 +26,7 @@ object StructuredStreaming {
     val query = jsonDf.writeStream
       .outputMode("append")
       .format("console")
-      .option("truncate", "false") // Prevent truncation of long rows
+      .option("truncate", "false")
       .start()
 
     query.awaitTermination()
