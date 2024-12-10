@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="Added python script to connect to websocket">
+    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="[FIX] - Fixed python script and scala script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/AAPL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/connect_ais.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/connect_ais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +207,11 @@
       <workItem from="1731749422448" duration="26000" />
       <workItem from="1731749601443" duration="117000" />
       <workItem from="1731749856212" duration="2128000" />
-      <workItem from="1732009397443" duration="2092000" />
+      <workItem from="1732009397443" duration="5315000" />
+      <workItem from="1733730253270" duration="18000" />
+      <workItem from="1733761434891" duration="380000" />
+      <workItem from="1733761885016" duration="5380000" />
+      <workItem from="1733853529203" duration="6506000" />
     </task>
     <task id="LOCAL-00001" summary="Init 2">
       <option name="closed" value="true" />
@@ -253,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732010781995</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[FIX] - Fixed python script and scala script">
+      <option name="closed" value="true" />
+      <created>1732014224722</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732014224722</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +293,7 @@
     <MESSAGE value="Update build.sbt" />
     <MESSAGE value="Update build.sbt and StructuredStreaming.scala" />
     <MESSAGE value="Added python script to connect to websocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added python script to connect to websocket" />
+    <MESSAGE value="[FIX] - Fixed python script and scala script" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX] - Fixed python script and scala script" />
   </component>
 </project>
