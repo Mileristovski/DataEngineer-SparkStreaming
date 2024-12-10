@@ -1,0 +1,4 @@
+Message,MessageType,MetaData
+"{'SafetyBroadcastMessage': {'MessageID': 14, 'RepeatIndicator': 0, 'Spare': 0, 'Text': 'ITMSN ITVSG 10122024 2240A POB 22', 'UserID': 247323300, 'Valid': True}}",SafetyBroadcastMessage,"{'MMSI': 247323300, 'MMSI_String': 247323300, 'ShipName': 'MESSINA             ', 'latitude': 38.188419999999994, 'longitude': 15.56374, 'time_utc': '2024-12-10 21:36:24.432563813 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'SafetyBroadcastMessage': {'MessageID': 14, 'RepeatIndicator': 0, 'Spare': 0, 'Text': 'ITMSN ITVSG 10122024 2240A POB 22', 'UserID': 247323300, 'Valid': True}}",SafetyBroadcastMessage,"{'MMSI': 247323300, 'MMSI_String': 247323300, 'ShipName': 'MESSINA             ', 'latitude': 38.188419999999994, 'longitude': 15.56374, 'time_utc': '2024-12-10 21:36:25.122213057 +0000 UTC'}"

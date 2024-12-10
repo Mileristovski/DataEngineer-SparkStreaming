@@ -1,0 +1,50 @@
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 2320816, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 232004102, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 232004102, 'MMSI_String': 232004102, 'ShipName': 'CAMERON             ', 'latitude': 51.713298333333334, 'longitude': -5.042403333333334, 'time_utc': '2024-12-10 21:27:12.842009144 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:21.482220609 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:21.482887999 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:21.484145335 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:22.065120231 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:22.065408986 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009481, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93257833333333, 'longitude': -76.41540166666667, 'time_utc': '2024-12-10 21:32:22.095988741 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 240597600, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 2391300, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 2391300, 'MMSI_String': 2391300, 'ShipName': '', 'latitude': 38.035245, 'longitude': 23.54151166666667, 'time_utc': '2024-12-10 21:32:27.270485673 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 240597600, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 2391300, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 2391300, 'MMSI_String': 2391300, 'ShipName': '', 'latitude': 38.035245, 'longitude': 23.54151166666667, 'time_utc': '2024-12-10 21:32:27.297864768 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 240597600, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 2391300, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 2391300, 'MMSI_String': 2391300, 'ShipName': '', 'latitude': 38.035245, 'longitude': 23.54151166666667, 'time_utc': '2024-12-10 21:32:27.43632621 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 240597600, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 2391300, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 2391300, 'MMSI_String': 2391300, 'ShipName': '', 'latitude': 38.035245, 'longitude': 23.54151166666667, 'time_utc': '2024-12-10 21:32:27.45030286 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009327, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93251166666666, 'longitude': -76.41525666666666, 'time_utc': '2024-12-10 21:33:13.618416146 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009327, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93251166666666, 'longitude': -76.41525666666666, 'time_utc': '2024-12-10 21:33:13.670215929 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009327, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93251166666666, 'longitude': -76.41525666666666, 'time_utc': '2024-12-10 21:33:13.670568947 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538009327, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 538007101, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 538007101, 'MMSI_String': 538007101, 'ShipName': 'TOMINI PROSPERITY   ', 'latitude': 38.93251166666666, 'longitude': -76.41525666666666, 'time_utc': '2024-12-10 21:33:13.780929178 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 563191800, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 219000577, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 219000577, 'MMSI_String': 219000577, 'ShipName': 'FYNSHAV             ', 'latitude': 55.47089833333334, 'longitude': 10.536904999999999, 'time_utc': '2024-12-10 21:33:32.437269926 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 563191800, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 219000577, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 219000577, 'MMSI_String': 219000577, 'ShipName': 'FYNSHAV             ', 'latitude': 55.47089833333334, 'longitude': 10.536904999999999, 'time_utc': '2024-12-10 21:33:32.57558849 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 253834000, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 248153000, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 248153000, 'MMSI_String': 248153000, 'ShipName': 'AMALIYA             ', 'latitude': 51.39811666666667, 'longitude': 2.575216666666667, 'time_utc': '2024-12-10 21:33:48.064094961 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 253834000, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 248153000, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 248153000, 'MMSI_String': 248153000, 'ShipName': 'AMALIYA             ', 'latitude': 51.39811666666667, 'longitude': 2.575216666666667, 'time_utc': '2024-12-10 21:33:48.202155437 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 244333000, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 232004102, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 232004102, 'MMSI_String': 232004102, 'ShipName': 'CAMERON             ', 'latitude': 51.713301666666666, 'longitude': -5.042415, 'time_utc': '2024-12-10 21:38:18.170244813 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 244333000, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 232004102, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 232004102, 'MMSI_String': 232004102, 'ShipName': 'CAMERON             ', 'latitude': 51.713301666666666, 'longitude': -5.042415, 'time_utc': '2024-12-10 21:38:18.999358949 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538007209, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 248153000, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 248153000, 'MMSI_String': 248153000, 'ShipName': 'AMALIYA             ', 'latitude': 51.39815, 'longitude': 2.5753, 'time_utc': '2024-12-10 21:38:57.629602979 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 538007209, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 248153000, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 248153000, 'MMSI_String': 248153000, 'ShipName': 'AMALIYA             ', 'latitude': 51.39815, 'longitude': 2.5753, 'time_utc': '2024-12-10 21:38:57.706037068 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 2320816, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 232004102, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 232004102, 'MMSI_String': 232004102, 'ShipName': 'CAMERON             ', 'latitude': 51.713301666666666, 'longitude': -5.042415, 'time_utc': '2024-12-10 21:39:17.548086998 +0000 UTC'}"
+Message,MessageType,MetaData
+"{'CoordinatedUTCInquiry': {'DestinationID': 2320816, 'MessageID': 10, 'RepeatIndicator': 0, 'Spare1': 0, 'Spare2': 0, 'UserID': 232004102, 'Valid': True}}",CoordinatedUTCInquiry,"{'MMSI': 232004102, 'MMSI_String': 232004102, 'ShipName': 'CAMERON             ', 'latitude': 51.713301666666666, 'longitude': -5.042415, 'time_utc': '2024-12-10 21:39:17.607183163 +0000 UTC'}"
