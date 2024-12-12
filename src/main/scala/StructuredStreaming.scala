@@ -3,7 +3,7 @@ package esgi.datastreming.org
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions._
 import database.DatabaseConnect
-import handlers.{MessageHandler, MetaDataHandler, PositionReportHandler}
+import handlers.{MessageHandler, MetaDataHandler, ShipStaticDataHandler}
 import kafka.Kafka.loadKafkaStream
 
 import java.util.Properties
@@ -27,7 +27,7 @@ object StructuredStreaming {
     val connectionProperties: Properties = DatabaseConnect.connect()
 
     // Define handlers
-    val handlers: Seq[MessageHandler] = Seq(MetaDataHandler)
+    val handlers: Seq[MessageHandler] = Seq(ShipStaticDataHandler, MetaDataHandler)
 
     // Start all queries
     handlers.map(handler => handler.handle(jsonDf, connectionProperties))

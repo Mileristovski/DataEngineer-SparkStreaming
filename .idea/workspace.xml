@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="[FIX] - Fixed python script and scala script">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/database/DatabaseConnect.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docker/database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/database/init/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/connect_ais.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/connect_ais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/storage_ais.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/services/storage_ais.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/SparkStreaming.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,30 +57,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SparkStreaming.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StructuredStreaming.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StructuredStreamingJob.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Docker/zk-single-kafka-single.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/risto/Desktop/Project/TrackABoat/src/main/scala/Main.scala&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.SparkStreaming.executor": "Run",
+    "Application.StructuredStreaming.executor": "Run",
+    "Application.StructuredStreamingJob.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Docker.Docker/zk-single-kafka-single.yml: Compose Deployment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/risto/Desktop/Project/TrackABoat/src/main/scala/Main.scala",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\src\main\resources" />
@@ -233,7 +222,7 @@
       <workItem from="1733907823805" duration="319000" />
       <workItem from="1733914370818" duration="2038000" />
       <workItem from="1734018550887" duration="7150000" />
-      <workItem from="1734026463338" duration="5592000" />
+      <workItem from="1734026463338" duration="17310000" />
     </task>
     <task id="LOCAL-00001" summary="Init 2">
       <option name="closed" value="true" />
