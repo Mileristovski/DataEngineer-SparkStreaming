@@ -4,26 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data/AddressedBinaryMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/AddressedBinaryMessage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/AidsToNavigationReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/AidsToNavigationReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/AssignedModeCommand.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/AssignedModeCommand.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BaseStationReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/BaseStationReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/BinaryAcknowledge.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/BinaryAcknowledge.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ChannelManagement.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ChannelManagement.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/DataLinkManagementMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/DataLinkManagementMessage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ExtendedClassBPositionReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ExtendedClassBPositionReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GnssBroadcastBinaryMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/GnssBroadcastBinaryMessage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Interrogation.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Interrogation.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/MultiSlotBinaryMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/MultiSlotBinaryMessage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PositionReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/PositionReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ShipStaticData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ShipStaticData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/SingleSlotBinaryMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/SingleSlotBinaryMessage.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/StandardClassBPositionReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/StandardClassBPositionReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/StandardSearchAndRescueAircraftReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/StandardSearchAndRescueAircraftReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/StaticDataReport.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/StaticDataReport.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/UnknownMessage.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/UnknownMessage.csv" afterDir="false" />
+    <list default="true" id="55640ab6-5fc6-4dc3-8044-57e4ab0a8601" name="Changes" comment="[FIX] - Fixed python script and scala script">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/database/DatabaseConnect.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker/database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Docker/database/init/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/spark-streaming-build.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/connect_ais.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/connect_ais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/storage_ais.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/services/storage_ais.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/SparkStreaming.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +74,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.SparkStreaming.executor&quot;: &quot;Run&quot;,
     &quot;Application.StructuredStreaming.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StructuredStreamingJob.executor&quot;: &quot;Run&quot;,
     &quot;Application.Test.executor&quot;: &quot;Run&quot;,
     &quot;Docker.Docker/zk-single-kafka-single.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -93,6 +93,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\src\main\resources" />
+      <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\src\main\scala\config" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.StructuredStreaming">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.Main" />
@@ -100,7 +106,7 @@
       <option name="VM_PARAMETERS" value="--add-exports java.base/sun.nio.ch=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="esgi.datastreming.org.*" />
+          <option name="PATTERN" value="esgi.datastreming.org.database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +122,7 @@
       <option name="VM_PARAMETERS" value="--add-exports java.base/sun.nio.ch=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="esgi.datastreming.org.*" />
+          <option name="PATTERN" value="esgi.datastreming.org.database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,7 +137,7 @@
       <module name="TrackABoat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="esgi.datastreming.org.*" />
+          <option name="PATTERN" value="esgi.datastreming.org.database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,8 +145,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.Test" />
+    <configuration name="StructuredStreamingJob" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.StructuredStreamingJob" />
       <module name="TrackABoat" />
       <option name="VM_PARAMETERS" value="--add-exports java.base/sun.nio.ch=ALL-UNNAMED" />
       <extension name="coverage">
@@ -175,19 +181,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.StructuredStreamingJob" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SparkStreaming" />
       <item itemvalue="Application.StructuredStreaming" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="Docker.Docker/zk-single-kafka-single.yml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StructuredStreaming" />
+        <item itemvalue="Application.StructuredStreamingJob" />
         <item itemvalue="Docker.Docker/zk-single-kafka-single.yml: Compose Deployment" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SparkStreaming" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -197,8 +203,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
       </set>
     </attachedChunks>
   </component>
@@ -224,6 +230,10 @@
       <workItem from="1733761434891" duration="380000" />
       <workItem from="1733761885016" duration="5380000" />
       <workItem from="1733853529203" duration="7361000" />
+      <workItem from="1733907823805" duration="319000" />
+      <workItem from="1733914370818" duration="2038000" />
+      <workItem from="1734018550887" duration="7150000" />
+      <workItem from="1734026463338" duration="5592000" />
     </task>
     <task id="LOCAL-00001" summary="Init 2">
       <option name="closed" value="true" />

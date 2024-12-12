@@ -20,5 +20,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-tags" % "3.5.3",
   "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4",
   "org.apache.spark" %% "spark-streaming-kafka-0-10" % "3.5.3",
-  "org.postgresql" % "postgresql" % "42.6.0"
+  "org.postgresql" % "postgresql" % "42.6.0",
+  "io.github.cdimascio" % "java-dotenv" % "5.2.2",
+  "com.typesafe" % "config" % "1.4.2"
 )

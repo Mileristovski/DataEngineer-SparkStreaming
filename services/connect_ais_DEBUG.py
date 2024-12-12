@@ -6,7 +6,7 @@ import csv
 import os
 
 # Kafka configuration
-KAFKA_SERVER = os.getenv('KAFKA_SERVER', 'localhost:9092')
+KAFKA_SERVER = 'localhost:9092'
 KAFKA_TOPIC = 'ais_data'
 
 # Initialize Kafka producer
@@ -39,6 +39,19 @@ async def connect_to_ais_stream():
             
             # Send the processed message to Kafka
             producer.send(KAFKA_TOPIC, value=message_json.encode("utf-8"), key=key.encode("utf-8"))
+
+            # Write the message to a CSV file
+            # csv_filename = os.path.join(data_folder, f"{key}.csv")
+            # csv_file_exists = os.path.exists(csv_filename)
+            
+            # with open(csv_filename, mode='a', newline='', encoding='utf-8') as csv_file:
+            #     csv_writer = csv.DictWriter(csv_file, fieldnames=decoded_message.keys())
+                
+            #     # Write the header only if the file is new
+            #     if not csv_file_exists or key in ["AddressedSafetyMessage", "CoordinatedUTCInquiry", "SafetyBroadcastMessage"]:
+            #         csv_writer.writeheader()
+                
+            #         csv_writer.writerow(decoded_message)
 
 # Run the WebSocket client
 asyncio.get_event_loop().run_until_complete(connect_to_ais_stream())
