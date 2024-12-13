@@ -5,7 +5,7 @@ import com.typesafe.config.ConfigFactory
 import io.github.cdimascio.dotenv.Dotenv
 
 object ConfigLoader {
-  private val config = ConfigFactory.load() // Loads application.conf by default
+  private val config = ConfigFactory.load()
   private val dotenv = Dotenv.load()
 
   object DbConfig {
@@ -15,7 +15,6 @@ object ConfigLoader {
     val jdbc: String = dbConfig.getString("jdbc")
     val driver: String = dbConfig.getString("driver")
 
-    // Loading the password from environment variable
     val dbPassword: String = dotenv.get("DB_PASSWORD")
   }
 

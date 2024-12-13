@@ -5,7 +5,6 @@ import org.apache.spark.sql.functions._
 import database.DatabaseConnect
 import handlers.{MessageHandler, MetaDataHandler, ShipStaticDataHandler}
 import kafka.Kafka.loadKafkaStream
-
 import java.util.Properties
 
 object StructuredStreaming {
@@ -21,9 +20,8 @@ object StructuredStreaming {
 
     // Loading the kafka stream
     val df: DataFrame = loadKafkaStream(spark)
-
-    // Get the complete message from the Kafka topic
     val jsonDf: DataFrame = df.withColumn("Message", col("value").cast("string"))
+
     val connectionProperties: Properties = DatabaseConnect.connect()
 
     // Define handlers

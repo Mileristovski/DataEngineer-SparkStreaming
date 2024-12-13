@@ -1,7 +1,8 @@
 package esgi.datastreming.org
 package database
 
-import org.apache.spark.sql.types.{DoubleType, IntegerType, StringType, StructField, StructType}
+import org.apache.spark.sql.types.{DoubleType, IntegerType, StringType, StructType}
+import org.apache.spark.sql.types._
 
 object Schemas {
   val metaDataSchema: StructType = StructType(Seq(
@@ -15,9 +16,6 @@ object Schemas {
     )))
   ))
 
-  import org.apache.spark.sql.types._
-  import org.apache.spark.sql.functions.{col, from_json}
-
   val ShipStaticDataSchema = StructType(Seq(
     StructField("MessageType", StringType),
     StructField("Message", StructType(Seq(
@@ -30,7 +28,6 @@ object Schemas {
           StructField("C", DoubleType),
           StructField("D", DoubleType)
         )))
-        // Add other fields from your ShipStaticData as needed
       )))
     ))),
     StructField("MetaData", StructType(Seq(

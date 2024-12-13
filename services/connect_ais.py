@@ -2,7 +2,6 @@ import asyncio
 import websockets
 from kafka import KafkaProducer
 import json
-import csv
 import os
 
 # Kafka configuration

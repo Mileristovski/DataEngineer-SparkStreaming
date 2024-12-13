@@ -3,7 +3,8 @@ package handlers
 
 import config.ConfigLoader
 
-import esgi.datastreming.org.database.Schemas.ShipStaticDataSchema
+import database.Schemas.ShipStaticDataSchema
+
 import org.apache.spark.sql.functions.{col, from_json}
 import org.apache.spark.sql.{DataFrame, functions => F}
 import org.apache.spark.sql.streaming.StreamingQuery
@@ -19,8 +20,6 @@ object ShipStaticDataHandler extends MessageHandler {
       .withColumn("Message", from_json(col("Message"), ShipStaticDataSchema))
 
     val filteredDf = withParsedMeta.filter(F.col("Message.MessageType") === messageType)
-
-    // Parse the ShipStaticData fields and compute length/width
     val parsedDf = filteredDf.select(
         F.col("Message.MetaData.MMSI").as("MMSI"),
         F.trim(F.col("Message.MetaData.ShipName")).as("ShipName"),
@@ -40,23 +39,18 @@ object ShipStaticDataHandler extends MessageHandler {
         if (!batchDf.isEmpty) {
           val spark = batchDf.sparkSession
 
-          // Get distinct ships in the current batch
           val distinctShips = batchDf
-            .filter("ImoNumber IS NOT NULL AND ImoNumber > 0") // Ensure valid ImoNumber
+            .filter(col("ImoNumber").isNotNull && col("ImoNumber") > 0)
             .select("ImoNumber", "MMSI", "ShipName", "MaximumStaticDraught", "length", "width")
             .distinct()
 
-          // Read existing ships from DB
           val shipsDf = spark.read.jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
-
-          // Identify new ships that are not in DB yet (match by ImoNumber)
           val newShips = distinctShips.join(
             shipsDf,
             Seq("ImoNumber"),
             "left_anti"
           )
 
-          // Insert new ships into 'ships' table
           if (!newShips.isEmpty) {
             newShips.write
               .mode("append")
