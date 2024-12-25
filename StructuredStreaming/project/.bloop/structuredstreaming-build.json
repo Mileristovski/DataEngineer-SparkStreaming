@@ -214,7 +214,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "C:\\Users\\risto\\.jdks\\azul-17.0.13",
+                "home": "C:\\Users\\risto\\.jdks\\openjdk-21.0.2",
                 "options": [
                     "-Duser.dir=C:\\Users\\risto\\OneDrive - Reseau-GES\\Matières\\S2\\Spark streaming\\spark-streaming\\StructuredStreaming\\project"
                 ]
@@ -223,7 +223,7 @@
                 
             ],
             "runtimeConfig": {
-                "home": "C:\\Users\\risto\\.jdks\\azul-17.0.13",
+                "home": "C:\\Users\\risto\\.jdks\\openjdk-21.0.2",
                 "options": [
                     "-Duser.dir=C:\\Users\\risto\\OneDrive - Reseau-GES\\Matières\\S2\\Spark streaming\\spark-streaming\\StructuredStreaming\\project"
                 ]
