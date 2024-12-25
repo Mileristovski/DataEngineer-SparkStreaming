@@ -2,13 +2,12 @@ package esgi.datastreming.org
 package handlers
 
 import config.ConfigLoader
-
 import database.Schemas.metaDataSchema
 
-import org.apache.spark.sql.functions.{col, from_json}
 import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.functions.{col, from_json}
 import org.apache.spark.sql.streaming.StreamingQuery
-
+import kafka.Kafka.writeKafkaStream
 import java.util.Properties
 
 object MetaDataHandler extends MessageHandler {
@@ -37,9 +36,10 @@ object MetaDataHandler extends MessageHandler {
           )
 
         if (!batchWithShipId.isEmpty) {
-          batchWithShipId.write
-            .mode("append")
-            .jdbc(ConfigLoader.DbConfig.jdbc, "ais_positions", connectionProperties)
+          writeKafkaStream(batchWithShipId)
+//          batchWithShipId.write
+//            .mode("append")
+//            .jdbc(ConfigLoader.DbConfig.jdbc, "ais_positions", connectionProperties)
         }
       }
       .outputMode("update")

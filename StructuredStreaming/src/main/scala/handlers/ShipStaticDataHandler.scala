@@ -2,12 +2,13 @@ package esgi.datastreming.org
 package handlers
 
 import config.ConfigLoader
-
 import database.Schemas.ShipStaticDataSchema
 
 import org.apache.spark.sql.functions.{col, from_json}
-import org.apache.spark.sql.{DataFrame, functions => F}
 import org.apache.spark.sql.streaming.StreamingQuery
+import org.apache.spark.sql.{DataFrame, functions => F}
+
+import kafka.Kafka.writeKafkaStream
 
 import java.util.Properties
 
@@ -52,9 +53,10 @@ object ShipStaticDataHandler extends MessageHandler {
           )
 
           if (!newShips.isEmpty) {
-            newShips.write
-              .mode("append")
-              .jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
+            writeKafkaStream(newShips)
+//            newShips.write
+//              .mode("append")
+//              .jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
           }
         }
       }

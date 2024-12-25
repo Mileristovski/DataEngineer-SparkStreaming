@@ -18,9 +18,15 @@ object ConfigLoader {
     val dbPassword: String = dotenv.get("DB_PASSWORD")
   }
 
-  object KafkaConfig {
-    private val kafkaConfig = config.getConfig("kafka")
-    val bootstrapServers: String = kafkaConfig.getString("bootstrapServers")
-    val topic: String = kafkaConfig.getString("topic")
+  object LoadKafkaConfig {
+    private val loadKafkaConfig = config.getConfig("loadKafka")
+    val bootstrapServers: String = loadKafkaConfig.getString("bootstrapServers")
+    val topic: String = loadKafkaConfig.getString("topic")
+  }
+
+  object WriteKafkaConfig {
+    private val writeKafkaConfig = config.getConfig("writeKafka")
+    val bootstrapServers: String = writeKafkaConfig.getString("bootstrapServers")
+    val topic: String = writeKafkaConfig.getString("topic")
   }
 }
