@@ -39,5 +39,4 @@ async def connect_to_ais_stream():
             # Send the processed message to Kafka
             producer.send(KAFKA_TOPIC, value=message_json.encode("utf-8"), key=key.encode("utf-8"))
 
-# Run the WebSocket client
 asyncio.get_event_loop().run_until_complete(connect_to_ais_stream())
