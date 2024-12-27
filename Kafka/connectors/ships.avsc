@@ -1,0 +1,21 @@
+{
+  "errors.log.enable": "true",
+  "topics": "ais_data_ships",
+  "name": "ships_data",
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+  "connection.password": "mysecretpassword",
+  "fields.whitelist": "imonumber,mmsi,shipname,maximumstaticdraught,length,width",
+  "errors.log.include.messages": "true",
+  "errors.tolerance": "all",
+  "pk.mode": "record_value",
+  "pk.fields": "imonumber",
+  "auto.create": "true",
+  "batch.size": "500",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "table.name.format": "ships",
+  "tasks.max": "1",
+  "insert.mode": "insert",
+  "connection.url": "jdbc:postgresql://host.docker.internal:5432/ais_data",
+  "connection.user": "postgres"
+}

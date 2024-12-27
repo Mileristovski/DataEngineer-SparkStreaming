@@ -1,10 +1,12 @@
 package esgi.datastreming.org
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
-import org.apache.spark.sql.functions._
 import database.DatabaseConnect
 import handlers.{MessageHandler, MetaDataHandler, ShipStaticDataHandler}
 import kafka.Kafka.loadKafkaStream
+
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.{DataFrame, SparkSession}
+
 import java.util.Properties
 
 object StructuredStreaming {

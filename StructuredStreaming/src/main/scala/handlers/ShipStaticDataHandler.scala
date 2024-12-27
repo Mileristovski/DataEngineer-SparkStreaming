@@ -3,12 +3,11 @@ package handlers
 
 import config.ConfigLoader
 import database.Schemas.ShipStaticDataSchema
+import kafka.Kafka.writeKafkaTopicShips
 
-import org.apache.spark.sql.functions.{col, from_json}
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.streaming.StreamingQuery
 import org.apache.spark.sql.{DataFrame, functions => F}
-
-import kafka.Kafka.writeKafkaStream
 
 import java.util.Properties
 
@@ -22,10 +21,10 @@ object ShipStaticDataHandler extends MessageHandler {
 
     val filteredDf = withParsedMeta.filter(F.col("Message.MessageType") === messageType)
     val parsedDf = filteredDf.select(
-        F.col("Message.MetaData.MMSI").as("MMSI"),
-        F.trim(F.col("Message.MetaData.ShipName")).as("ShipName"),
-        F.col("Message.Message.ShipStaticData.ImoNumber").as("ImoNumber"),
-        F.col("Message.Message.ShipStaticData.MaximumStaticDraught").as("MaximumStaticDraught"),
+        F.col("Message.MetaData.MMSI").as("mmsi"),
+        F.trim(F.col("Message.MetaData.ShipName")).as("shipname"),
+        F.col("Message.Message.ShipStaticData.ImoNumber").as("imonumber"),
+        F.col("Message.Message.ShipStaticData.MaximumStaticDraught").as("maximumstaticdraught"),
         F.col("Message.Message.ShipStaticData.Dimension.A").as("A"),
         F.col("Message.Message.ShipStaticData.Dimension.B").as("B"),
         F.col("Message.Message.ShipStaticData.Dimension.C").as("C"),
@@ -38,25 +37,40 @@ object ShipStaticDataHandler extends MessageHandler {
     parsedDf.writeStream
       .foreachBatch { (batchDf: DataFrame, _: Long) =>
         if (!batchDf.isEmpty) {
-          val spark = batchDf.sparkSession
-
           val distinctShips = batchDf
-            .filter(col("ImoNumber").isNotNull && col("ImoNumber") > 0)
-            .select("ImoNumber", "MMSI", "ShipName", "MaximumStaticDraught", "length", "width")
+            .filter(col("imonumber").isNotNull && col("imonumber") > 0)
+            .select("imonumber", "mmsi", "shipname", "maximumstaticdraught", "length", "width")
             .distinct()
 
-          val shipsDf = spark.read.jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
-          val newShips = distinctShips.join(
-            shipsDf,
-            Seq("ImoNumber"),
-            "left_anti"
-          )
-
-          if (!newShips.isEmpty) {
-            writeKafkaStream(newShips)
-//            newShips.write
-//              .mode("append")
-//              .jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
+          if (!distinctShips.isEmpty) {
+            // Transform the DataFrame to include schema and payload
+            val keyValueDf = distinctShips.select(
+              col("imonumber").cast("string").as("key"), // Key as string
+              F.to_json(
+                F.struct(
+                  F.struct(
+                    lit("struct").as("type"),
+                    F.array(
+                      F.struct(lit("imonumber").as("field"), lit("int64").as("type")),
+                      F.struct(lit("mmsi").as("field"), lit("int64").as("type")),
+                      F.struct(lit("shipname").as("field"), lit("string").as("type")),
+                      F.struct(lit("maximumstaticdraught").as("field"), lit("double").as("type")),
+                      F.struct(lit("length").as("field"), lit("int64").as("type")),
+                      F.struct(lit("width").as("field"), lit("int64").as("type"))
+                    ).as("fields")
+                  ).as("schema"),
+                  F.struct(
+                    col("imonumber"),
+                    col("mmsi"),
+                    col("shipname"),
+                    col("maximumstaticdraught"),
+                    col("length"),
+                    col("width")
+                  ).as("payload")
+                )
+              ).as("value")
+            )
+            writeKafkaTopicShips(keyValueDf)
           }
         }
       }

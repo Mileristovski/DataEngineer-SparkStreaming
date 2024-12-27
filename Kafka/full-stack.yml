@@ -109,6 +109,7 @@ services:
       - |
         confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest
         confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
+        confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:latest
         /etc/confluent/docker/run
 
   

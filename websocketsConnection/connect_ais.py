@@ -21,8 +21,6 @@ subscription_message = json.dumps({
     "APIKey": API_KEY,
     "BoundingBoxes": BOUNDING_BOXES
 })
-data_folder = os.path.join("data")
-os.makedirs(data_folder, exist_ok=True)
 
 
 async def connect_to_ais_stream():
