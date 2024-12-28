@@ -19,7 +19,8 @@ BOUNDING_BOXES = [[[-90, -180], [90, 180]]]
 # Subscription message
 subscription_message = json.dumps({
     "APIKey": API_KEY,
-    "BoundingBoxes": BOUNDING_BOXES
+    "BoundingBoxes": BOUNDING_BOXES,
+    "FilterMessageTypes": ["PositionReport", "ShipStaticData"]
 })
 
 

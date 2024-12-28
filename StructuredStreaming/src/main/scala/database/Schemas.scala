@@ -16,7 +16,7 @@ object Schemas {
     )))
   ))
 
-  val ShipStaticDataSchema = StructType(Seq(
+  val ShipStaticDataSchema: StructType = StructType(Seq(
     StructField("MessageType", StringType),
     StructField("Message", StructType(Seq(
       StructField("ShipStaticData", StructType(Seq(

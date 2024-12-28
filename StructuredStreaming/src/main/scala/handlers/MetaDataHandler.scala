@@ -2,47 +2,59 @@ package esgi.datastreming.org
 package handlers
 
 import config.ConfigLoader
-
 import database.Schemas.metaDataSchema
+import kafka.Kafka.writeKafkaTopic
 
-import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{col, from_json}
+import org.apache.spark.sql.functions.{col, from_json, lit}
 import org.apache.spark.sql.streaming.StreamingQuery
-
-import kafka.Kafka.writeKafkaTopicPositions
-
-import java.util.Properties
+import org.apache.spark.sql.{DataFrame, functions => F}
 
 object MetaDataHandler extends MessageHandler {
   override def messageType: String = ""
 
-  override def handle(jsonDf: DataFrame, connectionProperties: Properties): StreamingQuery = {
-    val withParsedMeta = jsonDf
+  override def initialParsing(df: DataFrame): DataFrame = {
+    df.select(
+      col("MetaData.MetaData.MMSI").as("ShipMMSI"),
+      col("MetaData.MetaData.latitude").as("Latitude"),
+      col("MetaData.MetaData.longitude").as("Longitude")
+    )
+  }
+
+  override def jsonSchema(df: DataFrame): DataFrame = {
+    df.select(
+      col("ShipMMSI").cast("string").as("key"), // Key as string
+      F.to_json(
+        F.struct(
+          F.struct(
+            lit("struct").as("type"),
+            F.array(
+              F.struct(lit("ShipMMSI").as("field"), lit("int64").as("type")),
+              F.struct(lit("Latitude").as("field"), lit("double").as("type")),
+              F.struct(lit("Longitude").as("field"), lit("double").as("type"))
+            ).as("fields")
+          ).as("schema"),
+          F.struct(
+            col("ShipMMSI"),
+            col("Latitude"),
+            col("Longitude")
+          ).as("payload")
+        )
+      ).as("value")
+    )
+  }
+
+  override def handle(jsonDf: DataFrame): StreamingQuery = {
+    val rawData = jsonDf
       .withColumn("MetaData", from_json(col("Message"), metaDataSchema))
 
-    val parsedDf = withParsedMeta.select(
-        col("MetaData.MetaData.MMSI").as("MMSI"),
-        col("MetaData.MetaData.ShipName").as("ShipName"),
-        col("MetaData.MetaData.latitude").as("latitude"),
-        col("MetaData.MetaData.longitude").as("longitude")
-      )
+    // Get the useful data from the raw data
+    val parsedDf = initialParsing(rawData)
 
     parsedDf.writeStream
       .foreachBatch { (batchDf: DataFrame, _: Long) =>
-        val spark = batchDf.sparkSession
-        val shipsDf = spark.read.jdbc(ConfigLoader.DbConfig.jdbc, "ships", connectionProperties)
-        val batchWithShipId = batchDf.join(shipsDf, Seq("MMSI", "ShipName"), "inner")
-          .select(
-            col("id").as("ship_id"),
-            col("latitude"),
-            col("longitude")
-          )
-
-        if (!batchWithShipId.isEmpty) {
-          writeKafkaTopicPositions(batchWithShipId)
-//          batchWithShipId.write
-//            .mode("append")
-//            .jdbc(ConfigLoader.DbConfig.jdbc, "ais_positions", connectionProperties)
+        if (!batchDf.isEmpty) {
+          val kafkaDf = jsonSchema(batchDf)
+          writeKafkaTopic(kafkaDf, ConfigLoader.Kafka.positions)
         }
       }
       .outputMode("update")

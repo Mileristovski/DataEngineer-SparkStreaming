@@ -1,14 +1,15 @@
 package esgi.datastreming.org
 package handlers
 
-import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.streaming.StreamingQuery
-import org.apache.spark.sql.{functions => F}
-
-import java.util.Properties
+import org.apache.spark.sql.{DataFrame, functions => F}
 
 object PositionReportHandler extends MessageHandler {
   override def messageType: String = "PositionReport"
 
-  override def handle(jsonDf: DataFrame, connectionProperties: Properties): StreamingQuery = ???
+  override def handle(jsonDf: DataFrame): StreamingQuery = ???
+
+  override def jsonSchema(df: DataFrame): DataFrame = ???
+
+  override def initialParsing(df: DataFrame): DataFrame = ???
 }
