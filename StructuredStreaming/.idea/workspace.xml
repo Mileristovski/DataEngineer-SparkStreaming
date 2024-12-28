@@ -5,20 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c62dd53f-0ad7-4734-bc2f-2f0c702a7c11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AvroSchemas/ships.avsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandlerTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/kafka/KafkaTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Kafka/full-stack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/database/DatabaseConnect.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../database/init/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../websocketsConnection/connect_ais.py" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketsConnection/connect_ais.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +118,8 @@
       <workItem from="1735123859962" duration="440000" />
       <workItem from="1735124575135" duration="19973000" />
       <workItem from="1735205418402" duration="11616000" />
-      <workItem from="1735292555586" duration="15246000" />
+      <workItem from="1735292555586" duration="22997000" />
+      <workItem from="1735392405123" duration="4186000" />
     </task>
     <servers />
   </component>

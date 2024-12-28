@@ -1,19 +1,20 @@
 -- Create the ships table
 CREATE TABLE ships (
     "ImoNumber" BIGINT PRIMARY KEY,
-    "MMSI" BIGINT,
+    "MMSI" BIGINT UNIQUE NOT NULL,
     "ShipName" VARCHAR(100) NOT NULL,
     "MaximumStaticDraught" FLOAT,
-    "length" FLOAT,
-    "width" FLOAT
+    "Length" FLOAT,
+    "Width" FLOAT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Modify ais_positions table to include a foreign key to ships
 CREATE TABLE ais_positions (
     id SERIAL PRIMARY KEY,
-    "ship_id" INT NOT NULL REFERENCES ships(id),
-    "latitude" FLOAT NOT NULL,
-    "longitude" FLOAT NOT NULL,
+    "ShipMMSI" INT NOT NULL REFERENCES ships("MMSI"),
+    "Latitude" FLOAT NOT NULL,
+    "Longitude" FLOAT NOT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
