@@ -1,8 +1,12 @@
 FROM python:3.9
 
+WORKDIR /app
+
+ADD requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 ADD connect_ais.py .
 
-RUN pip install kafka-python websockets asyncio
 ENV KAFKA_SERVER=host.docker.internal:9092
 
 CMD ["python", "./connect_ais.py"]

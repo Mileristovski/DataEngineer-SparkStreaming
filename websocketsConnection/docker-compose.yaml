@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  connect_ais:
+    image: mileristo/stream_ais:v1  # Pull the image from the registry
+    hostname: WebSocketsConnection
+    container_name: WebSocketsConnection
+    environment:
+      - KAFKA_SERVER=host.docker.internal:29092
+      - KAFKA_TOPIC=ais_data
+      - AIS_STREAM_URL=wss://stream.aisstream.io/v0/stream
+      - API_KEY=e66dea5edc96977c45bd4ddba1e1b34acf718a04
+      - BOUNDING_BOXES_1=0
+      - BOUNDING_BOXES_2=0
+      - BOUNDING_BOXES_3=90
+      - BOUNDING_BOXES_4=180
