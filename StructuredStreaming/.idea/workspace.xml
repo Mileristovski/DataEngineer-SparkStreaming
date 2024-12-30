@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c62dd53f-0ad7-4734-bc2f-2f0c702a7c11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    <list default="true" id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Kafka/full-stack.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/database/DatabaseConnect.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../database/init/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../websocketsConnection/connect_ais.py" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketsConnection/connect_ais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,29 +50,29 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2qhnobH4lpxN2K0BWtRF8FI73i5" />
+  <component name="ProjectId" id="2qwYt74tRAEQQ7YjfvY1UNmJTp0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.StructuredStreaming.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StructuredStreaming.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="StructuredStreaming" type="Application" factoryName="Application" temporary="true">
+    <configuration name="StructuredStreaming" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11 (WSL)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.StructuredStreaming" />
@@ -90,11 +87,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.StructuredStreaming" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ScalaProjectSettings">
     <option name="migrateConfigurationsNotificationShown" value="true" />
@@ -110,16 +102,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c62dd53f-0ad7-4734-bc2f-2f0c702a7c11" name="Changes" comment="" />
-      <created>1735123857116</created>
+      <changelist id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="" />
+      <created>1735575322218</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1735123857116</updated>
-      <workItem from="1735123859962" duration="440000" />
-      <workItem from="1735124575135" duration="19973000" />
-      <workItem from="1735205418402" duration="11616000" />
-      <workItem from="1735292555586" duration="22997000" />
-      <workItem from="1735392405123" duration="4186000" />
+      <updated>1735575322218</updated>
+      <workItem from="1735575325128" duration="653000" />
+      <workItem from="1735575993922" duration="6073000" />
     </task>
     <servers />
   </component>

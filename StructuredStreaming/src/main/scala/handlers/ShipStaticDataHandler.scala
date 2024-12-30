@@ -4,7 +4,9 @@ package handlers
 import config.ConfigLoader
 import database.Schemas.ShipStaticDataSchema
 import kafka.Kafka.writeKafkaTopic
+import kafka.Schemas.shipSchema
 
+import org.apache.avro.generic.GenericData
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.streaming.StreamingQuery
 import org.apache.spark.sql.{DataFrame, functions => F}
@@ -23,35 +25,6 @@ object ShipStaticDataHandler extends MessageHandler {
       F.col("Message.Message.ShipStaticData.Dimension.B").as("B"),
       F.col("Message.Message.ShipStaticData.Dimension.C").as("C"),
       F.col("Message.Message.ShipStaticData.Dimension.D").as("D")
-    )
-  }
-
-  override def jsonSchema(df: DataFrame): DataFrame = {
-    df.select(
-      col("ShipName").cast("string").as("key"), // Key as string
-      F.to_json(
-        F.struct(
-          F.struct(
-            lit("struct").as("type"),
-            F.array(
-              F.struct(lit("ImoNumber").as("field"), lit("int64").as("type")),
-              F.struct(lit("MMSI").as("field"), lit("int64").as("type")),
-              F.struct(lit("ShipName").as("field"), lit("string").as("type")),
-              F.struct(lit("MaximumStaticDraught").as("field"), lit("double").as("type")),
-              F.struct(lit("Length").as("field"), lit("int64").as("type")),
-              F.struct(lit("Width").as("field"), lit("int64").as("type"))
-            ).as("fields")
-          ).as("schema"),
-          F.struct(
-            col("ImoNumber"),
-            col("MMSI"),
-            col("ShipName"),
-            col("MaximumStaticDraught"),
-            col("Length"),
-            col("Width")
-          ).as("payload")
-        )
-      ).as("value")
     )
   }
 
@@ -77,9 +50,27 @@ object ShipStaticDataHandler extends MessageHandler {
             .distinct()
 
           if (!distinctShips.isEmpty) {
-            // Transform the DataFrame to include schema and payload
-            val keyValueDf = jsonSchema(distinctShips)
-            writeKafkaTopic(keyValueDf, ConfigLoader.Kafka.ships)
+            // Transform DataFrame rows to Avro records
+            val schema = shipSchema() // Load Avro schema
+            val avroRecords = distinctShips.collect().map { row =>
+              val record = new GenericData.Record(schema)
+              record.put("ImoNumber", row.getAs[Long]("ImoNumber"))
+              record.put("MMSI", row.getAs[Long]("MMSI"))
+              record.put("ShipName", row.getAs[String]("ShipName"))
+              record.put("MaximumStaticDraught", row.getAs[Double]("MaximumStaticDraught"))
+              record.put("Length", row.getAs[Long]("Length"))
+              record.put("Width", row.getAs[Long]("Width"))
+
+              // Use ShipName as the key
+              val key = row.getAs[String]("ShipName")
+
+              (record, key)
+            }
+
+            // Send Avro records to Kafka
+            avroRecords.foreach { case (record, key) =>
+              writeKafkaTopic(record, ConfigLoader.Kafka.ships, key)
+            }
           }
         }
       }

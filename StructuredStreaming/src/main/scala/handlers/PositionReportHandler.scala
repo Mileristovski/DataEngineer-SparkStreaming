@@ -9,7 +9,5 @@ object PositionReportHandler extends MessageHandler {
 
   override def handle(jsonDf: DataFrame): StreamingQuery = ???
 
-  override def jsonSchema(df: DataFrame): DataFrame = ???
-
   override def initialParsing(df: DataFrame): DataFrame = ???
 }

@@ -4,10 +4,12 @@ package handlers
 import config.ConfigLoader
 import database.Schemas.metaDataSchema
 import kafka.Kafka.writeKafkaTopic
+import kafka.Schemas.positionSchema
 
-import org.apache.spark.sql.functions.{col, from_json, lit}
+import org.apache.avro.generic.GenericData
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.functions.{col, from_json}
 import org.apache.spark.sql.streaming.StreamingQuery
-import org.apache.spark.sql.{DataFrame, functions => F}
 
 object MetaDataHandler extends MessageHandler {
   override def messageType: String = ""
@@ -17,29 +19,6 @@ object MetaDataHandler extends MessageHandler {
       col("MetaData.MetaData.MMSI").as("ShipMMSI"),
       col("MetaData.MetaData.latitude").as("Latitude"),
       col("MetaData.MetaData.longitude").as("Longitude")
-    )
-  }
-
-  override def jsonSchema(df: DataFrame): DataFrame = {
-    df.select(
-      col("ShipMMSI").cast("string").as("key"), // Key as string
-      F.to_json(
-        F.struct(
-          F.struct(
-            lit("struct").as("type"),
-            F.array(
-              F.struct(lit("ShipMMSI").as("field"), lit("int64").as("type")),
-              F.struct(lit("Latitude").as("field"), lit("double").as("type")),
-              F.struct(lit("Longitude").as("field"), lit("double").as("type"))
-            ).as("fields")
-          ).as("schema"),
-          F.struct(
-            col("ShipMMSI"),
-            col("Latitude"),
-            col("Longitude")
-          ).as("payload")
-        )
-      ).as("value")
     )
   }
 
@@ -53,8 +32,24 @@ object MetaDataHandler extends MessageHandler {
     parsedDf.writeStream
       .foreachBatch { (batchDf: DataFrame, _: Long) =>
         if (!batchDf.isEmpty) {
-          val kafkaDf = jsonSchema(batchDf)
-          writeKafkaTopic(kafkaDf, ConfigLoader.Kafka.positions)
+          // Transform DataFrame rows to Avro records
+          val schema = positionSchema()
+          val avroRecords = batchDf.collect().map { row =>
+            val record = new GenericData.Record(schema)
+            record.put("ShipMMSI", row.getAs[Long]("ShipMMSI"))
+            record.put("Latitude", row.getAs[Double]("Latitude"))
+            record.put("Longitude", row.getAs[Double]("Longitude"))
+
+            // Use ShipMMSI as the key
+            val key = row.getAs[Long]("ShipMMSI").toString // Convert key to string as required by Kafka
+
+            (record, key)
+          }
+
+          // Send Avro records to Kafka
+          avroRecords.foreach { case (record, key) =>
+            writeKafkaTopic(record, ConfigLoader.Kafka.positions, key)
+          }
         }
       }
       .outputMode("update")

@@ -1,16 +1,15 @@
 package esgi.datastreming.org
 package config
 
-import com.typesafe.config.ConfigFactory
+import io.github.cdimascio.dotenv.Dotenv
 
 object ConfigLoader {
-  private val config = ConfigFactory.load()
+  private val dotenv = Dotenv.load()
 
   object Kafka {
-    private val loadKafkaConfig = config.getConfig("kafka")
-    val bootstrapServers: String = loadKafkaConfig.getString("bootstrapServers")
-    val input: String = loadKafkaConfig.getString("topicInput")
-    val ships: String = loadKafkaConfig.getString("topicShips")
-    val positions: String = loadKafkaConfig.getString("topicPositions")
+    val bootstrapServers: String = dotenv.get("KAFKA_BOOTSTRAP_SERVERS")
+    val input: String = dotenv.get("KAFKA_TOPIC_INPUT")
+    val ships: String = dotenv.get("KAFKA_TOPIC_SHIPS")
+    val positions: String = dotenv.get("KAFKA_TOPIC_POSITIONS")
   }
 }
