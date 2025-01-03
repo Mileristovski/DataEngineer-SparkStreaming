@@ -5,18 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Kafka/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/conduktor.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ais_positions.avsc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/jmx-exporter.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple-schema-registry.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-single.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-multiple.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-single.yml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Docker/dev/StructuredStreaming/structured_streaming.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/apache/spark/log4j2-defaults.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/config/ConfigLoader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/conduktor.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ais_positions.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/connectors/ais_positions.avsc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/connectors/ships.avsc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/full-stack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/jmx-exporter.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/jmx-exporter.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple-schema-registry.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-multiple-schema-registry.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-multiple.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-single.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-single.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-multiple.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-single-kafka-multiple.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-single.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-single-kafka-single.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
@@ -24,24 +28,24 @@
       <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/StructuredStreaming.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/database/Schemas.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MessageHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MetaDataHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/PositionReportHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/ShipStaticDataHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Kafka.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Schemas.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../database/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/database/init/init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dev/connect_ais_DEBUG.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../dev/storage_ais.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../env/dev/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/conduktor.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/connectors/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/dev_with_conduktor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/conduktor.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/connectors/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/connectors/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/dev_with_conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev_with_conduktor.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,6 +144,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\StructuredStreaming\target\scala-2.13" />
       <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\StructuredStreaming\src\main\scala\esgi\datastreaming\org" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -192,7 +197,7 @@
       <workItem from="1735739939583" duration="2449000" />
       <workItem from="1735753558828" duration="3363000" />
       <workItem from="1735822304558" duration="15108000" />
-      <workItem from="1735901989493" duration="1553000" />
+      <workItem from="1735901989493" duration="1892000" />
     </task>
     <servers />
   </component>
