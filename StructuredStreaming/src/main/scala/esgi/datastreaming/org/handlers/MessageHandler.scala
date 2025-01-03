@@ -1,4 +1,4 @@
-package esgi.datastreming.org
+package esgi.datastreaming.org
 package handlers
 
 import org.apache.spark.sql.DataFrame

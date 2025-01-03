@@ -1,4 +1,4 @@
-package esgi.datastreming.org
+package esgi.datastreaming.org
 package kafka
 
 import org.apache.avro.Schema

@@ -1,4 +1,4 @@
-package esgi.datastreming.org
+package esgi.datastreaming.org
 package database
 
 import org.apache.spark.sql.types.{DoubleType, IntegerType, StringType, StructType}

@@ -1,8 +1,7 @@
-package esgi.datastreming.org
+package esgi.datastreaming.org
 package kafka
 
-import config.ConfigLoader
-
+import esgi.datastreaming.org.config.ConfigLoader
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.avro.generic.GenericRecord
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
@@ -26,10 +25,10 @@ object Kafka {
 
   private def configureKafkaProducer(): KafkaProducer[String, GenericRecord] = {
     val props = new Properties()
-    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
+    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ConfigLoader.Kafka.bootstrapServers)
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, classOf[StringSerializer])
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[KafkaAvroSerializer])
-    props.put("schema.registry.url", "http://localhost:8081")
+    props.put("schema.registry.url", ConfigLoader.Kafka.schemaRegistryUrl)
 
     val producer = new KafkaProducer[String, GenericRecord](props)
     producer

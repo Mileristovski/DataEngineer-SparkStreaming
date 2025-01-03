@@ -36,15 +36,11 @@ services:
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zoo1
-      
-  
-  init-kafka-topics:
-    image: confluentinc/cp-kafka:7.3.2
-    depends_on:
-      - kafka1
     entrypoint: [ '/bin/sh', '-c' ]
     command: |
       "
+      # Start Kafka
+      /etc/confluent/docker/run &
       # Wait until Kafka is reachable
       kafka-topics --bootstrap-server kafka1:29092 --list
 
@@ -79,8 +75,9 @@ services:
 
       echo 'Successfully created the following topics:'
       kafka-topics --bootstrap-server kafka1:29092 --list
+      wait
       "
-  
+
 
   kafka-schema-registry:
     image: confluentinc/cp-schema-registry:7.3.2

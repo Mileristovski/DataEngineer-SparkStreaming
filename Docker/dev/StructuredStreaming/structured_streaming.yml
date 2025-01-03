@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  trackaboat:
+    # Build from your local Dockerfile
+    image: mileristo/structured_streaming_ais:v2
+    container_name: trackaboat
+    # depends_on:
+    #   - kafka
+    # ports:
+    #   - "8080:8080"
+    environment:
+      # Pass your environment variables
+      KAFKA_BOOTSTRAP_SERVERS: "host.docker.internal:29092"
+      KAFKA_SCHEMA_URL: "http://host.docker.internal:8081"
+      KAFKA_TOPIC_INPUT: "ais_data"
+      KAFKA_TOPIC_SHIPS: "ais_data_ships"
+      KAFKA_TOPIC_POSITIONS: "ais_data_positions"

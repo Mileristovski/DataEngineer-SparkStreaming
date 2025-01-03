@@ -5,18 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Kafka/full-stack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/conduktor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ais_positions.avsc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/jmx-exporter.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple-schema-registry.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-single.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-multiple.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-single.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.bloop/structuredstreaming-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/structuredstreaming-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dev/connect_ais_DEBUG.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dev/storage_ais.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/conduktor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/connectors/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../env/dev/dev_with_conduktor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +53,39 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TrackABoat" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TrackABoat" type="f1a62948:ProjectNode" />
+                <item name="sbt tasks" type="d9357504:SbtViewContributor$SbtTasksGroupNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TrackABoat" type="f1a62948:ProjectNode" />
+                <item name="TrackABoat-build" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TrackABoat" type="f1a62948:ProjectNode" />
+                <item name="TrackABoat-build" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,6 +101,10 @@
     &quot;url&quot;: &quot;git@github.com:Mileristovski/spark-streaming.git&quot;,
     &quot;accountId&quot;: &quot;07111fda-0904-4f2d-b719-d902d232d3df&quot;
   }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
 }</component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -62,24 +125,36 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming/src/main/scala/esgi",
     "last_opened_file_path": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\StructuredStreaming\src\main\scala\esgi\datastreaming\org" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="StructuredStreaming" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11 (WSL)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="esgi.datastreming.org.StructuredStreaming" />
+      <option name="MAIN_CLASS_NAME" value="esgi.datastreaming.org.StructuredStreaming" />
       <module name="TrackABoat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="esgi.datastreming.org.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,7 +183,16 @@
       <option name="presentableId" value="Default" />
       <updated>1735575322218</updated>
       <workItem from="1735575325128" duration="653000" />
-      <workItem from="1735575993922" duration="6073000" />
+      <workItem from="1735575993922" duration="6215000" />
+      <workItem from="1735639426354" duration="470000" />
+      <workItem from="1735639919512" duration="3015000" />
+      <workItem from="1735644166787" duration="1198000" />
+      <workItem from="1735647888994" duration="2667000" />
+      <workItem from="1735736912398" duration="1025000" />
+      <workItem from="1735739939583" duration="2449000" />
+      <workItem from="1735753558828" duration="3363000" />
+      <workItem from="1735822304558" duration="15108000" />
+      <workItem from="1735901989493" duration="1553000" />
     </task>
     <servers />
   </component>

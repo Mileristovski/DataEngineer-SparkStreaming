@@ -1,14 +1,12 @@
-package esgi.datastreming.org
+package esgi.datastreaming.org
 
-import handlers.{MessageHandler, MetaDataHandler, ShipStaticDataHandler}
-import kafka.Kafka.loadKafkaStream
-
+import esgi.datastreaming.org.handlers.{MessageHandler, MetaDataHandler, ShipStaticDataHandler}
+import esgi.datastreaming.org.kafka.Kafka.loadKafkaStream
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object StructuredStreaming {
   def main(args: Array[String]): Unit = {
-    System.setProperty("log4j.configuration", "file:src/main/resources/log4j.properties")
 
     // Initialize a spark session
     val spark = SparkSession
@@ -19,6 +17,7 @@ object StructuredStreaming {
 
     // Loading the kafka stream
     val df: DataFrame = loadKafkaStream(spark)
+
     val jsonDf: DataFrame = df.withColumn("Message", col("value").cast("string"))
 
     // Define handlers

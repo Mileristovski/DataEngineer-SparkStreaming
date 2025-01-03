@@ -5,7 +5,42 @@ ThisBuild / scalaVersion := "2.13.15"
 lazy val root = (project in file("."))
   .settings(
     name := "TrackABoat",
-    idePackagePrefix := Some("esgi.datastreming.org")
+    scalaVersion := "2.13.15",
+    assembly / mainClass := Some("esgi.datastreaming.org.StructuredStreaming"),
+
+    // The crucial part: merge strategy
+    assembly / assemblyMergeStrategy := {
+      val defaultStrategy = (assembly / assemblyMergeStrategy).value
+
+      {
+        case PathList("META-INF", "services", xs @ _*) =>
+          MergeStrategy.concat
+
+        case "META-INF/io.netty.versions.properties" =>
+          MergeStrategy.first
+
+        case "module-info.class" =>
+          MergeStrategy.discard
+
+        case PathList("META-INF", "versions", _ @ _*) =>
+          MergeStrategy.first
+
+        case PathList("google", "protobuf", _ @ _*) =>
+          MergeStrategy.first
+
+        case PathList("META-INF", "org", "apache", "logging", "log4j", "core", "config", "plugins", "Log4j2Plugins.dat") =>
+          MergeStrategy.first
+
+        case PathList("org", "apache", "commons", "logging", _ @ _*) =>
+          MergeStrategy.first
+
+        case PathList("arrow-git.properties") =>
+          MergeStrategy.first
+
+        // Default/fallback: use the 'old' (a.k.a. default) strategy
+        case x => defaultStrategy(x)
+      }
+    }
   )
 
 val sparkVersion = "3.5.3"
