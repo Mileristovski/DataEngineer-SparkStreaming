@@ -51,7 +51,7 @@ object ShipStaticDataHandler extends MessageHandler {
 
           if (!distinctShips.isEmpty) {
             // Transform DataFrame rows to Avro records
-            val schema = shipSchema() // Load Avro schema
+            val schema = shipSchema()
             val avroRecords = distinctShips.collect().map { row =>
               val record = new GenericData.Record(schema)
               record.put("ImoNumber", row.getAs[Long]("ImoNumber"))

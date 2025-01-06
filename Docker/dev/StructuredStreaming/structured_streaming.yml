@@ -12,3 +12,4 @@ services:
       KAFKA_TOPIC_INPUT: "ais_data"
       KAFKA_TOPIC_SHIPS: "ais_data_ships"
       KAFKA_TOPIC_POSITIONS: "ais_data_positions"
+    restart: on-failure

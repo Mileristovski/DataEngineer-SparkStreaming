@@ -173,7 +173,6 @@ services:
               "config": {
                 "topics": "ais_data_ships",
                 "auto.evolve": "false",
-                "key.converter": "org.apache.kafka.connect.storage.StringConverter",
                 "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
                 "connection.password": "'"${DB_PASSWORD}"'",
                 "fields.whitelist": "ImoNumber,MMSI,ShipName,MaximumStaticDraught,Length,Width",
@@ -202,7 +201,6 @@ services:
               "config": {
                 "topics": "ais_data_positions",
                 "auto.evolve": "false",
-                "key.converter": "org.apache.kafka.connect.storage.StringConverter",
                 "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
                 "connection.password": "'"${DB_PASSWORD}"'",
                 "fields.whitelist": "ShipMMSI,Latitude,Longitude",

@@ -41,7 +41,7 @@ object MetaDataHandler extends MessageHandler {
             record.put("Longitude", row.getAs[Double]("Longitude"))
 
             // Use ShipMMSI as the key
-            val key = row.getAs[Long]("ShipMMSI").toString // Convert key to string as required by Kafka
+            val key = row.getAs[Long]("ShipMMSI").toString
 
             (record, key)
           }
