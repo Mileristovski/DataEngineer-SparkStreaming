@@ -36,7 +36,7 @@ object Kafka {
 
   def writeKafkaTopic(avroRecord: GenericRecord, topicName: String, key: String): Unit = {
       val producer: KafkaProducer[String, GenericRecord] = configureKafkaProducer()
-      val record = new ProducerRecord[String, GenericRecord](topicName, key, avroRecord)
+      val record = new ProducerRecord[String, GenericRecord](topicName, null, avroRecord)
 
       try {
         producer.send(record)

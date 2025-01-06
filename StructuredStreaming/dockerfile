@@ -1,34 +1,34 @@
 # # ########################################################
 # # # Stage 1: Build the JAR using SBT + Scala + Java
 # # ########################################################
-# FROM hseeberger/scala-sbt:11.0.14.1_1.6.2_2.13.8 AS builder
-# ENV SBT_OPTS="-Xmx3G -Xms512M"
-# WORKDIR /app
+FROM hseeberger/scala-sbt:eclipse-temurin-11.0.14.1_1.6.2_2.13.8 AS builder
+ENV SBT_OPTS="-Xmx3G -Xms512M"
+WORKDIR /app
 
-# COPY build.sbt /app/
-# COPY project/ /app/project/
-# COPY src/ /app/src/
+COPY build.sbt /app/
+COPY project/ /app/project/
+COPY src/ /app/src/
 
-# # Build the fat JAR
-# RUN sbt clean assembly
+# Build the fat JAR
+RUN sbt clean assembly
 
 # ########################################################
 # # Stage 2: Create the minimal runtime image
 # ########################################################
-# FROM openjdk:11-jre-slim
-
-# RUN useradd -ms /bin/bash sparkuser
-# USER sparkuser
-
-# WORKDIR /app
-
-# COPY --from=builder /app/target/scala-2.13/TrackABoat-assembly-0.1.0-SNAPSHOT.jar /app/
-
-# ENTRYPOINT ["java", "-jar", "TrackABoat-assembly-0.1.0-SNAPSHOT.jar"]
-
 FROM openjdk:11-jre-slim
+
+RUN useradd -ms /bin/bash sparkuser
+USER sparkuser
+
 WORKDIR /app
 
-COPY TrackABoat-assembly-0.1.0-SNAPSHOT.jar /app/
+COPY --from=builder /app/target/scala-2.13/TrackABoat-assembly-0.1.0-SNAPSHOT.jar /app/
 
 ENTRYPOINT ["java", "-jar", "TrackABoat-assembly-0.1.0-SNAPSHOT.jar"]
+
+# FROM openjdk:11-jre-slim
+# WORKDIR /app
+
+# COPY TrackABoat-assembly-0.1.0-SNAPSHOT.jar /app/
+
+# ENTRYPOINT ["java", "-jar", "TrackABoat-assembly-0.1.0-SNAPSHOT.jar"]

@@ -5,48 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Docker/dev/StructuredStreaming/structured_streaming.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/org/apache/spark/log4j2-defaults.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/config/ConfigLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/conduktor.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ais_positions.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/connectors/ais_positions.avsc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/connectors/ships.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/connectors/ships.avsc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/full-stack.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/jmx-exporter.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/jmx-exporter.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple-schema-registry.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-multiple-schema-registry.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-multiple.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-multiple.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-multiple-kafka-single.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-multiple-kafka-single.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-multiple.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-single-kafka-multiple.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kafka/zk-single-kafka-single.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/zk-single-kafka-single.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/.bloop/structuredstreaming-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/.bloop/structuredstreaming-build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/project/.bloop/structuredstreaming-build-build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/StructuredStreaming.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/StructuredStreaming.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/config/ConfigLoader.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/database/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/database/Schemas.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MessageHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MetaDataHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/PositionReportHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/PositionReportHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/ShipStaticDataHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Kafka.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/kafka/Schemas.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Schemas.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/init/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/database/init/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dev/connect_ais_DEBUG.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dev/storage_ais.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/conduktor.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/connectors/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/connectors/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../env/dev/dev_with_conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev_with_conduktor.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../websocketsConnection/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Kafka.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/kafka/Kafka.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,26 +84,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.StructuredStreaming.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming/src/main/scala/esgi",
-    "last_opened_file_path": "C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.StructuredStreaming.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming/src/main/scala/esgi&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/risto/OneDrive - Reseau-GES/Matières/S2/Spark streaming/spark-streaming/StructuredStreaming&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\risto\OneDrive - Reseau-GES\Matières\S2\Spark streaming\spark-streaming\StructuredStreaming\target\scala-2.13" />
@@ -197,7 +159,8 @@
       <workItem from="1735739939583" duration="2449000" />
       <workItem from="1735753558828" duration="3363000" />
       <workItem from="1735822304558" duration="15108000" />
-      <workItem from="1735901989493" duration="1892000" />
+      <workItem from="1735901989493" duration="3927000" />
+      <workItem from="1736157146213" duration="354000" />
     </task>
     <servers />
   </component>

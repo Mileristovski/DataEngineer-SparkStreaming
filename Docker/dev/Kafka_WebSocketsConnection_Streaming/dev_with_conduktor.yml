@@ -1,0 +1,315 @@
+version: '2.1'
+
+services:
+  zoo1:
+    image: confluentinc/cp-zookeeper:7.3.2
+    hostname: zoo1
+    container_name: zoo1
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zoo1:2888:3888
+
+  kafka1:
+    image: confluentinc/cp-kafka:7.3.2
+    hostname: kafka1
+    container_name: kafka1
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+      - "9999:9999"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9001
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    depends_on:
+      - zoo1
+    entrypoint: [ '/bin/sh', '-c' ]
+    command: |
+      "
+      # Start Kafka
+      /etc/confluent/docker/run &
+      # Wait until Kafka is reachable
+      kafka-topics --bootstrap-server kafka1:29092 --list
+
+      echo 'Creating Kafka topics with custom configurations...'
+      kafka-topics --bootstrap-server kafka1:29092 --create --if-not-exists --topic ais_data \\
+        --replication-factor 1 --partitions 3 \\
+        --config cleanup.policy=delete \\
+        --config delete.retention.ms=60000 \\
+        --config retention.bytes=52428800 \\
+        --config retention.ms=60000 \\
+        --config segment.bytes=10485760 \\
+        --config segment.ms=30000
+
+      kafka-topics --bootstrap-server kafka1:29092 --create --if-not-exists --topic ais_data_ships \\
+        --replication-factor 1 --partitions 3 \\
+        --config cleanup.policy=delete \\
+        --config delete.retention.ms=60000 \\
+        --config retention.bytes=52428800 \\
+        --config retention.ms=60000 \\
+        --config segment.bytes=10485760 \\
+        --config segment.ms=30000
+
+      kafka-topics --bootstrap-server kafka1:29092 --create --if-not-exists --topic ais_data_positions \\
+        --replication-factor 1 --partitions 3 \\
+        --config cleanup.policy=delete \\
+        --config delete.retention.ms=60000 \\
+        --config retention.bytes=52428800 \\
+        --config retention.ms=60000 \\
+        --config segment.bytes=10485760 \\
+        --config segment.ms=30000
+
+
+      echo 'Successfully created the following topics:'
+      kafka-topics --bootstrap-server kafka1:29092 --list
+      wait
+      "
+
+
+  kafka-schema-registry:
+    image: confluentinc/cp-schema-registry:7.3.2
+    hostname: kafka-schema-registry
+    container_name: kafka-schema-registry
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19092
+      SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    depends_on:
+      - zoo1
+      - kafka1
+
+  
+  kafka-rest-proxy:
+    image: confluentinc/cp-kafka-rest:7.3.2
+    hostname: kafka-rest-proxy
+    container_name: kafka-rest-proxy
+    ports:
+      - "8082:8082"
+    environment:
+      # KAFKA_REST_ZOOKEEPER_CONNECT: zoo1:2181
+      KAFKA_REST_LISTENERS: http://0.0.0.0:8082/
+      KAFKA_REST_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
+      KAFKA_REST_HOST_NAME: kafka-rest-proxy
+      KAFKA_REST_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19092
+    depends_on:
+      - zoo1
+      - kafka1
+      - kafka-schema-registry
+
+  
+  kafka-connect:
+    image: confluentinc/cp-kafka-connect:7.3.2
+    hostname: kafka-connect
+    container_name: kafka-connect
+    ports:
+      - "8083:8083"
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: "kafka1:19092"
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: compose-connect-group
+      CONNECT_CONFIG_STORAGE_TOPIC: docker-connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: docker-connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: docker-connect-status
+      CONNECT_KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
+      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "kafka-connect"
+      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars,/usr/share/confluent-hub-components'
+    volumes:
+      - ./connectors:/etc/kafka-connect/jars/
+    depends_on:
+      - zoo1
+      - kafka1
+      - kafka-schema-registry
+      - kafka-rest-proxy
+    command: 
+      - bash 
+      - -c 
+      - |
+        echo '127.0.0.1 kafka-connect-01' >> /etc/hosts
+        echo "Installing connector plugins"        
+        confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest
+        confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
+        confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:latest
+        echo "Launching Kafka Connect worker"
+        /etc/confluent/docker/run & 
+        echo "Waiting for Kafka Connect to start listening on localhost ⏳"
+        while : ; do
+          curl_status=$$(curl -s -o /dev/null -w %{http_code} http://localhost:8083/connectors)
+          echo -e $$(date) " Kafka Connect listener HTTP state: " $$curl_status " (waiting for 200)"
+          if [ $$curl_status -eq 200 ] ; then
+            break
+          fi
+          sleep 5 
+        done
+
+        echo -e "\n--\n+> Creating Kafka connectors"
+        curl -s -X POST -H "Content-Type: application/json" http://localhost:8083/connectors \
+            -d '{
+              "name": "ships_data",
+              "config": {
+                "topics": "ais_data_ships",
+                "auto.evolve": "false",
+                "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+                "connection.password": "'"${DB_PASSWORD}"'",
+                "fields.whitelist": "ImoNumber,MMSI,ShipName,MaximumStaticDraught,Length,Width",
+                "errors.log.include.messages": "true",
+                "errors.tolerance": "all",
+                "pk.mode": "record_value",
+                "pk.fields": "ImoNumber",
+                "batch.size": "500",
+                "errors.log.enable": "true",
+                "value.converter.schema.registry.url": "http://kafka-schema-registry:8081",
+                "value.converter": "io.confluent.connect.avro.AvroConverter",
+                "table.name.format": "'"${DB_TABLE_SHIPS}"'",
+                "tasks.max": "1",
+                "insert.mode": "insert",
+                "connection.url": "'"${DB_URL}"'",
+                "connection.user": "'"${DB_USER}"'",
+                "auto.create": "false",
+                "max.retries": "5"
+              }
+            }'
+
+        echo "Connector ships_data created successfully!"
+        curl -s -X POST -H "Content-Type: application/json" http://localhost:8083/connectors \
+            -d '{
+              "name": "positions_data",
+              "config": {
+                "topics": "ais_data_positions",
+                "auto.evolve": "false",
+                "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+                "connection.password": "'"${DB_PASSWORD}"'",
+                "fields.whitelist": "ShipMMSI,Latitude,Longitude",
+                "errors.log.include.messages": "true",
+                "errors.tolerance": "all",
+                "pk.mode": "none",
+                "batch.size": "500",
+                "errors.log.enable": "true",
+                "value.converter.schema.registry.url": "http://kafka-schema-registry:8081",
+                "value.converter": "io.confluent.connect.avro.AvroConverter",
+                "table.name.format": "'"${DB_TABLE_POSITIONS}"'",
+                "tasks.max": "1",
+                "insert.mode": "insert",
+                "connection.url": "'"${DB_URL}"'",
+                "connection.user": "'"${DB_USER}"'",
+                "auto.create": "false",
+                "max.retries": "5"
+              }
+            }'
+
+        echo "Connector positions_data created successfully!"
+        sleep infinity
+
+  ksqldb-server:
+    image: confluentinc/cp-ksqldb-server:7.3.2
+    hostname: ksqldb-server
+    container_name: ksqldb-server
+    ports:
+      - "8088:8088"
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19092
+      KSQL_LISTENERS: http://0.0.0.0:8088/
+      KSQL_KSQL_SERVICE_ID: ksqldb-server_
+    depends_on:
+      - zoo1
+      - kafka1
+  
+  connect_ais:
+    image: mileristo/stream_ais:v2 
+    hostname: WebSocketsConnection
+    container_name: WebSocketsConnection
+    environment:
+      KAFKA_SERVER: kafka1:29092
+      KAFKA_TOPIC: ais_data
+      AIS_STREAM_URL: ${AIS_STREAM_URL}
+      API_KEY: e66dea5edc96977c45bd4ddba1e1b34acf718a04
+      LAT_BOTTOM_LEFT: ${LAT_BOTTOM_LEFT}
+      LON_BOTTOM_LEFT: ${LON_BOTTOM_LEFT}
+      LAT_TOP_RIGHT: ${LAT_TOP_RIGHT}
+      LON_TOP_RIGHT: ${LON_TOP_RIGHT}
+    depends_on:
+      - kafka1
+      - zoo1
+    restart: on-failure
+    command: 
+      - bash 
+      - -c 
+      - |
+        until echo > /dev/tcp/kafka1/29092; do
+          echo 'Waiting for Kafka to be ready...';
+          sleep 5;
+        done;
+        echo 'Kafka is ready! Starting application...';
+
+        # Wait until Kafka is reachable
+        kafka-topics --bootstrap-server kafka1:29092 --list
+        python ./connect_ais.py
+
+  trackaboat:
+    image: mileristo/structured_streaming_ais:v3
+    container_name: trackaboat1
+    depends_on:
+      - kafka1
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: "kafka1:29092"
+      KAFKA_SCHEMA_URL: "http://host.docker.internal:8081"
+      KAFKA_TOPIC_INPUT: "ais_data"
+      KAFKA_TOPIC_SHIPS: "ais_data_ships"
+      KAFKA_TOPIC_POSITIONS: "ais_data_positions"
+    restart: on-failure
+    command: 
+      - bash 
+      - -c 
+      - |
+        until echo > /dev/tcp/kafka1/29092; do
+          echo 'Waiting for Kafka to be ready...';
+          sleep 5;
+        done;
+        echo 'Kafka is ready! Starting application...';
+
+        # Wait until Kafka is reachable
+        kafka-topics --bootstrap-server kafka1:29092 --list
+        java -jar TrackABoat-assembly-0.1.0-SNAPSHOT.jar
+
+  postgresql:
+    hostname: postgresql
+    container_name: postgresql
+    extends:
+      service: postgresql
+      file: conduktor.yml 
+            
+  conduktor-console:
+    hostname: conduktor-console
+    container_name: conduktor-console
+    extends:
+      service: conduktor-console
+      file: conduktor.yml
+
+volumes:
+  pg_data: {}
+  conduktor_data: {}
+

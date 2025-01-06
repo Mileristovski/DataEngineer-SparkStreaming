@@ -10,7 +10,7 @@ services:
       - KAFKA_TOPIC=ais_data
       - AIS_STREAM_URL=wss://stream.aisstream.io/v0/stream
       - API_KEY=e66dea5edc96977c45bd4ddba1e1b34acf718a04
-      - LAT_BOTTOM_LEFT=0
-      - LON_BOTTOM_LEFT=0
+      - LAT_BOTTOM_LEFT=-90
+      - LON_BOTTOM_LEFT=-180
       - LAT_TOP_RIGHT=90
       - LON_TOP_RIGHT=180
