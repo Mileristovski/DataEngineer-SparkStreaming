@@ -1,5 +1,5 @@
 package esgi.datastreaming.org
-package database
+package messages
 
 import org.apache.spark.sql.types.{DoubleType, IntegerType, StringType, StructType}
 import org.apache.spark.sql.types._

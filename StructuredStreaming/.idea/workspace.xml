@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2f758aa-8559-4e11-a38a-88b696169dba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Docker/dev/Kafka/full-stack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka/full-stack.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev_with_conduktor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/Kafka_WebSocketsConnection/dev_with_conduktor.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Docker/dev/StructuredStreaming/structured_streaming.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Docker/dev/StructuredStreaming/structured_streaming.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MetaDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/MetaDataHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/ShipStaticDataHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/esgi/datastreaming/org/handlers/ShipStaticDataHandler.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +158,7 @@
       <workItem from="1735822304558" duration="15108000" />
       <workItem from="1735901989493" duration="3927000" />
       <workItem from="1736157146213" duration="354000" />
-      <workItem from="1736180780343" duration="711000" />
+      <workItem from="1736180780343" duration="1528000" />
     </task>
     <servers />
   </component>

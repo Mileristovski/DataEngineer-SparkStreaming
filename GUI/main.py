@@ -25,6 +25,7 @@ MAP_IMAGE = "GUI/world_map.jpg"
 def update_ship_locations(message):
     ship_data = message.get("value", {})
     ship_mmsi = ship_data.get("ShipMMSI")
+    #if get_ship_by_mmsi(ship_mmsi): 
     latitude = ship_data.get("Latitude")
     longitude = ship_data.get("Longitude")
 

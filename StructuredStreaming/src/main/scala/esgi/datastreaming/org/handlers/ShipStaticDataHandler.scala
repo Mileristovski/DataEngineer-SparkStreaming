@@ -2,7 +2,7 @@ package esgi.datastreaming.org
 package handlers
 
 import config.ConfigLoader
-import database.Schemas.ShipStaticDataSchema
+import messages.Schemas.ShipStaticDataSchema
 import kafka.Kafka.writeKafkaTopic
 import kafka.Schemas.shipSchema
 

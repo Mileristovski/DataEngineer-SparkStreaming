@@ -30,7 +30,6 @@ def get_ship_by_mmsi(mmsi):
         cursor.execute(query, (int(mmsi),))
 
         ship = cursor.fetchone()
-        print(ship)
         return ship
 
     except psycopg2.Error as e:
