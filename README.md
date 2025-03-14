@@ -50,11 +50,11 @@ Chaque dossier contient un fichier `.yml` permettant de **démarrer uniquement l
 
 ```
 dev/
-│── Kafka/                            # Service Kafka & Zookeeper
-│── Kafka_WebSocketsConnection/        # Connexion Kafka ↔ WebSockets
+│── Kafka/                                 # Service Kafka & Zookeeper
+│── Kafka_WebSocketsConnection/            # Connexion Kafka ↔ WebSockets
 │── Kafka_WebSocketsConnection_Streaming/  # Streaming en temps réel via WebSockets
-│── StructuredStreaming/                # Traitement des données avec Spark Streaming
-│── WebSocketsConnection/               # Service WebSockets indépendant
+│── StructuredStreaming/                   # Traitement des données avec Spark Streaming
+│── WebSocketsConnection/                  # Service WebSockets indépendant
 ```
 
 ### 🛠️ **Lancer un service spécifique**  
